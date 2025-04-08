@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="ryz"
+           fetch="https://github.com/RyzOS-Project"
+           revision="refs/heads/15" />
+
+  <remote  name="github-non-los"
+           sync-c="true"
+           sync-j="4"
+           fetch="https://github.com" />
+
+  <remote  name="gitlab"
+           fetch="https://gitlab.com/" />
+
+  <remote  name="ryz-gitlab"
+           fetch="https://gitlab.com/RyzOS-Project"
+           revision="refs/heads/15" />
+
+  <!-- Rootdir -->
+  <project path="bionic" name="bionic" groups="pdk" remote="ryz" />
+
+  <!-- Bootable -->
+  <project path="bootable/recovery" name="bootable_recovery" groups="pdk" remote="ryz" />
+
+  <!-- Build -->
+  <project path="build/make" name="build" groups="pdk" remote="ryz">
+    <linkfile dest="build/CleanSpec.mk" src="CleanSpec.mk" />
+    <linkfile dest="build/buildspec.mk.default" src="buildspec.mk.default" />
+    <linkfile dest="build/core" src="core" />
+    <linkfile dest="build/envsetup.sh" src="envsetup.sh" />
+    <linkfile dest="build/target" src="target" />
+    <linkfile dest="build/tools" src="tools" />
+  </project>
+  <project path="build/soong" name="build_soong" groups="pdk,tradefed" remote="ryz">
+    <linkfile dest="Android.bp" src="root.bp" />
+    <linkfile dest="bootstrap.bash" src="bootstrap.bash" />
+  </project>
+
+  <!-- External -->
+  <project path="external/FadingEdgeLayout" name="external_FadingEdgeLayout" remote="ryz" />
+
+  <!-- Frameworks -->
+  <project path="frameworks/av" name="frameworks_av" groups="pdk" remote="ryz" />
+  <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="ryz" />
+  <project path="frameworks/libs/systemui" name="frameworks_libs_systemui" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="ryz" />
+  <project path="frameworks/native" name="frameworks_native" groups="pdk" remote="ryz" />
+
+  <!-- Packages -->
+  <project path="packages/apps/BtHelper" name="TheParasiteProject/packages_apps_BtHelper" revision="main" remote="github-non-los" />
+  <project path="packages/apps/RyzTune" name="packages_apps_RyzTune" remote="ryz" />
+  <project path="packages/apps/ColumbusService" name="packages_apps_ColumbusService" remote="ryz" />
+  <project path="packages/apps/FaceUnlock" name="packages_apps_FaceUnlock" remote="ryz" />
+  <project path="packages/apps/GameSpace" name="packages_apps_GameSpace" groups="pdk" remote="ryz" />
+  <project path="packages/apps/Trebuchet" name="packages_apps_Trebuchet" groups="pdk-fs,sysui-studio,pdk-cw-tvc" remote="ryz"/>
+  <project path="packages/apps/LineageParts" name="packages_apps_LineageParts" remote="ryz" />
+  <project path="packages/apps/LMOFreeform" name="packages_apps_LMOFreeform" remote="ryz" />
+  <project path="packages/apps/Updater" name="packages_apps_Updater" remote="ryz" />
+  <project path="packages/apps/OmniStyle" name="packages_apps_OmniStyle" remote="ryz" />
+  <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs" remote="ryz" />
+  <project path="packages/apps/SetupWizard" name="packages_apps_SetupWizard" remote="ryz" />
+  <project path="packages/apps/SystemUIFlagFlipper" name="packages_apps_SystemUIFlagFlipper" remote="ryz" />
+
+  <!-- Packages -->
+  <project path="packages/modules/Bluetooth" name="packages_modules_Bluetooth" groups="pdk" remote="ryz" />
+  <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" groups="pdk" remote="ryz" />
+  <project path="packages/modules/Wifi" name="packages_modules_Wifi" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="ryz" />
+  <project path="packages/services/DeviceAsWebcam" name="packages_services_DeviceAsWebcam" groups="pdk-cw-fs,pdk-fs" remote="ryz" />
+  <project path="packages/services/OmniJaws" name="packages_services_OmniJaws" remote="ryz" />
+  <project path="packages/services/Telecomm" name="packages_services_Telecomm" remote="ryz" />
+  <project path="packages/services/Telephony" name="packages_services_Telephony" groups="pdk-cw-fs,pdk-fs" remote="ryz" />
+
+  <!-- Hardware -->
+  <project path="hardware/interfaces" name="hardware_interfaces" groups="pdk,sysui-studio" remote="ryz" />
+
+  <!-- SDK -->
+  <project path="lineage-sdk" name="lineage-sdk" remote="ryz" />
+
+  <!-- Sepolicy -->
+  <project path="device/lineage/sepolicy" name="device_ryz_sepolicy" remote="ryz" />
+
+  <!-- System -->
+  <project path="system/core" name="system_core" groups="pdk" remote="ryz" />
+  <project path="system/sepolicy" name="system_sepolicy" groups="pdk" remote="ryz" />
+  <project path="system/update_engine" name="system_update_engine" groups="pdk" remote="ryz" />
+
+  <!-- Vendor -->
+  <project path="vendor/addons" name="vendor_addons" remote="ryz" />
+  <project path="vendor/lineage" name="vendor_ryz" remote="ryz" />
+  <project path="vendor/gapps" name="vendor_gms" clone-depth="1" remote="ryz-gitlab" />
+
+  <!-- Official-->
+  <project path="official" name="RyzOS-Devices/official" revision="15" remote="github" />
+
+  <!-- Toolchain -->
+  <project path="prebuilts/clang/host/linux-x86/clang-rastamod" name="kutemeikito/rastamod69-clang" revision="clang-21.0" remote="gitlab" />
+  </manifest>
